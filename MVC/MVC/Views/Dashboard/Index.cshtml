@@ -1,0 +1,35 @@
+﻿@model  IEnumerable<MVC.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Dashboard</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                <a href="@(Url.Action("RecentBookmarks", new {id = item.Id}))"> Recent Bookmars</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+<h4><a href="@(Url.Action("MostPopularBookmarks"))">3 Most Popular Bookmarks Today</a></h4>
+
+    

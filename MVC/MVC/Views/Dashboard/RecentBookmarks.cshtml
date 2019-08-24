@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ReadLater.Entities.Bookmark>
+@{
+    ViewBag.Title = "RecentBookmarks";
+}
+
+<h2>5 Most Recent Bookmarks</h2>
+
+<div class="col-md-12">
+    <section id="mostePopularBookmarks">
+        @Html.Partial("_MostePopularBookmarksPartial", Model.OrderByDescending(x => x.Rank).Take(5))
+    </section>
+</div>
